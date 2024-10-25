@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceAllXlsxFileText", "ReplaceAllXlsxFileText\ReplaceAllXlsxFileText.csproj", "{841ABF92-E198-4E3E-AC0C-26C55C2B7A84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{841ABF92-E198-4E3E-AC0C-26C55C2B7A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841ABF92-E198-4E3E-AC0C-26C55C2B7A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841ABF92-E198-4E3E-AC0C-26C55C2B7A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841ABF92-E198-4E3E-AC0C-26C55C2B7A84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA1AF154-E047-4FA0-9C6D-3BEB06D6F6A3}
+	EndGlobalSection
+EndGlobal
