@@ -101,30 +101,29 @@ namespace ReplaceAllXlsxFileText
                 {
                     using (ZipArchive archive = ZipFile.Open(filePath, ZipArchiveMode.Update))
                     {
-                        foreach (var entry in archive.Entries)
+                        var entry = archive.GetEntry("xl/sharedStrings.xml");
+
+                        if (entry is null)
                         {
-                            if (!string.Equals(entry.Name, "sharedStrings.xml", StringComparison.OrdinalIgnoreCase))
-                            {
-                                continue;
-                            }
-
-                            using var entryStream = entry.Open();
-                            using var entryStreamReader = new StreamReader(entryStream);
-
-                            var entryContent = entryStreamReader.ReadToEnd();
-                            var newSharedStringsContent = entryContent.Replace(escapedToReplace, escapedNewString, StringComparison.Ordinal);
-
-                            if (entryContent == newSharedStringsContent)
-                            {
-                                continue;
-                            }
-
-                            entryStream.Seek(0, SeekOrigin.Begin);
-                            entryStream.SetLength(0);
-                            using var entryStreamWriter = new StreamWriter(entryStream);
-                            entryStreamWriter.Write(newSharedStringsContent);
-                            replacedFileCount++;
+                            return;
                         }
+
+                        using var entryStream = entry.Open();
+                        using var entryStreamReader = new StreamReader(entryStream);
+
+                        var entryContent = entryStreamReader.ReadToEnd();
+                        var newSharedStringsContent = entryContent.Replace(escapedToReplace, escapedNewString, StringComparison.Ordinal);
+
+                        if (entryContent == newSharedStringsContent)
+                        {
+                            return;
+                        }
+
+                        entryStream.Seek(0, SeekOrigin.Begin);
+                        entryStream.SetLength(0);
+                        using var entryStreamWriter = new StreamWriter(entryStream);
+                        entryStreamWriter.Write(newSharedStringsContent);
+                        replacedFileCount++;
                     }
                 }
                 catch
